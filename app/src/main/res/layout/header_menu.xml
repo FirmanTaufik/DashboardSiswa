@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear_wrap"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/dasboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_dashboard_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_person_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/agenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_calendar_month_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agenda"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/rekam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/imgBtn"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/baseline_emergency_recording_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rekam Data"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="300"
+                app:el_expanded="false">
+
+                <LinearLayout
+                    android:id="@+id/linear_sub_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Ekstrakurikuler"  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Pengembangan Kerohanian"  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Pengembangan Karakter "  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Kegiatan Kemasyarakatan"  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Kegiatan Sekolah"  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Kepengurusan "  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Prestasi "  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Proyek"  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Kegiatan Luar Sekolah"  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Rekapitulasi"  />
+                </LinearLayout>
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/perpustakaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_local_library_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Perpustakaan"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/satgas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/imgBtn"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/baseline_group_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Satgas"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="300"
+                app:el_expanded="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Satgas Dashboard"  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Satgas Test "  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Satgas Vaksinasi "  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Satgas QR"  />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="4dp"
+                        android:padding="5dp"
+                        android:text="Persiapaan/Pendataan Vaksin "  />
+
+                </LinearLayout>
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_app_registration_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Ulang"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ukgs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_medication_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UKGS"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>
