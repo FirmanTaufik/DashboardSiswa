@@ -1,4 +1,4 @@
-package com.app.dashboardsiswa
+package com.app.dashboardsiswa.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

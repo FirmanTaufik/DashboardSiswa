@@ -1,4 +1,4 @@
-package com.app.dashboardsiswa
+package com.app.dashboardsiswa.activity
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.forEach
 import androidx.core.view.get
+import com.app.dashboardsiswa.R
 import com.app.dashboardsiswa.databinding.ActivityMainBinding
 import com.app.dashboardsiswa.databinding.HeaderMenuBinding
 import com.app.dashboardsiswa.helper.Utils
