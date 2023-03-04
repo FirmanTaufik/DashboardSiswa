@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.dashboard.DashboardFragment">
+    tools:context=".feature.dashboard.DashboardFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <TextView
+            android:textSize="22dp"
+            android:layout_gravity="center_vertical"
+            android:text="Welcome back!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
-</FrameLayout>
+    <com.google.android.material.card.MaterialCardView
+        app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:text="NOSPJ = 1934016"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_margin="5dp"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:text="SEKOLAH = D11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:text="KELAS = 4C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
