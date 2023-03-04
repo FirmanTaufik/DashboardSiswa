@@ -34,17 +34,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        val toggle = ActionBarDrawerToggle(
-            this, binding.drawerLayout, binding.toolbar, R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-        binding.drawerLayout.setScrimColor(getResources().getColor(android.R.color.transparent));
+        val toggle = ActionBarDrawerToggle( this, binding.drawerLayout, binding.toolbar, R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close  )
+        binding.drawerLayout.setScrimColor(resources.getColor(android.R.color.transparent));
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         binding.navView.bringToFront()
         initHeader()
         setContentFragment( DashboardFragment())
-
     }
 
    lateinit var header :HeaderMenuBinding
@@ -124,8 +121,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             R.id.daftar -> setContentFragment( DaftarUlangFragment())
             R.id.ukgs -> setContentFragment( UkgsFragment())
         }
-
-
     }
 
     private fun setContentFragment(fragment: Fragment ) {
