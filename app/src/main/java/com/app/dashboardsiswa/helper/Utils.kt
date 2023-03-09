@@ -1,11 +1,11 @@
 package com.app.dashboardsiswa.helper
 
+import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.SharedPreferences
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.bumptech.glide.Glide
@@ -14,6 +14,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object Utils {
+    public interface Callback{
+        fun onPositive()
+        fun onNegative()
+    }
 
     val TAG = "UtilsTAG"
     lateinit var mySharedPreferences: SharedPreferences
@@ -123,5 +127,44 @@ object Utils {
            et.setText("$i : $i2")
         }, hour, minute, true)
         timePickerDialog.show()
+    }
+
+    fun showDateDialog(context: Context, et: EditText) {
+        val calendar: Calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(
+            context,
+            { view, year, month, dayOfMonth ->
+                calendar.set(year, month, dayOfMonth)
+                val dateLongInput = calendar.timeInMillis
+                et.setText(convertToyyyMMdd(dateLongInput!!))
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.show()
+    }
+
+    fun setCustomDialog(context: Context, root: LinearLayout, title: String?, callback: Callback ){
+        val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+        if (title!=null)builder.setTitle(title)
+        builder.setView(root)
+        builder.setPositiveButton("Save", null)
+        builder.setNegativeButton("Cancel", null)
+        val mAlertDialog = builder.create()
+
+        mAlertDialog.setOnShowListener { dialog ->
+            val b = mAlertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            b.setOnClickListener {
+                callback.onPositive()
+                dialog.dismiss()
+            }
+            val b2 = mAlertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+            b2.setOnClickListener {
+                callback.onNegative()
+                dialog.dismiss()
+            }
+        }
+        mAlertDialog.show()
     }
 }
