@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.app.dashboardsiswa.R
+import com.app.dashboardsiswa.databinding.DialogAddEkstrakurikuleBinding
+import com.app.dashboardsiswa.databinding.DialogAddKerohanianBinding
 import com.app.dashboardsiswa.databinding.FragmentPengembanganKerohanianBinding
 import com.app.dashboardsiswa.databinding.TabelContentBinding
+import com.app.dashboardsiswa.helper.Utils
 
 
 class PengembanganKerohanianFragment : Fragment() {
@@ -44,6 +48,34 @@ class PengembanganKerohanianFragment : Fragment() {
             binding.tableLayout.addView(content.root)
 
         }
+
+        binding.btn.setOnClickListener {
+            dialogAdd()
+        }
         super.onViewCreated(view, savedInstanceState)
+    }
+
+
+    private fun dialogAdd() {
+        val dialog = DialogAddKerohanianBinding.inflate(layoutInflater)
+        val itemsKegiatan = listOf("Pelayanan Ke Gereja (Mengisi Pujian/choir)",
+            "Pelayanan Kemasyarakatan (Bakti Sosial, Dokter Kecil)",
+            "Pelayanan Kerohanian di sekolah (mengisi pujian/bertugas dalam ibadah sekolah)"  )
+        dialog.autoKegiatan.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsKegiatan))
+
+        val itemsJadwal = listOf("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" )
+        dialog.autoJadwal.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsJadwal))
+
+        Utils.setCustomDialog(requireContext(), dialog.root,null, object : Utils.Callback{
+            override fun onPositive() {
+                Utils.showToastInfo(requireContext(), "yes")
+            }
+
+            override fun onNegative() {
+                Utils.showToastInfo(requireContext(), "No")
+
+            }
+
+        })
     }
 }

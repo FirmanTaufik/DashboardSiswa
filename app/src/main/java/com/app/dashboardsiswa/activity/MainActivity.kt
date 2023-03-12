@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     setContentFragment( ProyekFragment())
                 }
                 header.linearSub1[8].setOnClickListener {
-                    setContentFragment( KegiatanSekolahFragment())
+                    setContentFragment( KegiatanLuarSekolahFragment())
                 }
                 header.linearSub1[9].setOnClickListener {
                     setContentFragment( RekapitulasiFragment())

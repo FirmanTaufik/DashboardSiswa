@@ -58,26 +58,30 @@ class EkstrakurikulerFragment : Fragment() {
 
     private fun initOnClick() {
         binding.btn.setOnClickListener {
-            val dialog = DialogAddEkstrakurikuleBinding.inflate(layoutInflater)
-
-            val itemsKegiatan = listOf("Catur", "Choir", "Coding", "Design Grafis", "Manga", "Math Club", "Melukis"
-                , "Modern Dance", "Pramuka", "Science Club" )
-            dialog.autoKegiatan.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsKegiatan))
-
-            val itemsJadwal = listOf("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" )
-            dialog.autoJadwal.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsJadwal))
-
-            Utils.setCustomDialog(requireContext(), dialog.root,null, object :Utils.Callback{
-                override fun onPositive() {
-                     Utils.showToastInfo(requireContext(), "yes")
-                }
-
-                override fun onNegative() {
-                    Utils.showToastInfo(requireContext(), "No")
-
-                }
-
-            })
+            dialogAdd()
         }
+    }
+
+    private fun dialogAdd() {
+        val dialog = DialogAddEkstrakurikuleBinding.inflate(layoutInflater)
+
+        val itemsKegiatan = listOf("Catur", "Choir", "Coding", "Design Grafis", "Manga", "Math Club", "Melukis"
+            , "Modern Dance", "Pramuka", "Science Club" )
+        dialog.autoKegiatan.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsKegiatan))
+
+        val itemsJadwal = listOf("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" )
+        dialog.autoJadwal.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsJadwal))
+
+        Utils.setCustomDialog(requireContext(), dialog.root,null, object :Utils.Callback{
+            override fun onPositive() {
+                Utils.showToastInfo(requireContext(), "yes")
+            }
+
+            override fun onNegative() {
+                Utils.showToastInfo(requireContext(), "No")
+
+            }
+
+        })
     }
 }

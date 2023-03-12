@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.app.dashboardsiswa.R
+import com.app.dashboardsiswa.databinding.DialogAddKarakterBinding
+import com.app.dashboardsiswa.databinding.DialogAddKerohanianBinding
 import com.app.dashboardsiswa.databinding.FragmentPengembanganKarakterBinding
 import com.app.dashboardsiswa.databinding.TabelContentBinding
+import com.app.dashboardsiswa.helper.Utils
 
 class PengembanganKarakterFragment : Fragment() {
 
@@ -44,6 +48,44 @@ class PengembanganKarakterFragment : Fragment() {
             binding.tableLayout.addView(content.root)
 
         }
+        binding.btn.setOnClickListener {
+            dialogAdd()
+        }
         super.onViewCreated(view, savedInstanceState)
+    }
+
+
+    private fun dialogAdd() {
+        val dialog = DialogAddKarakterBinding.inflate(layoutInflater)
+        val itemsKegiatan = listOf("Best Character Agustus",
+            "Best Character April",
+            "Best Character Desember" ,
+            "Best Character Februari" ,
+            "Best Character Januari",
+            "Best Character Juni",
+            "Best Character Maret",
+            "Best Character Mei",
+            "Best Character November",
+            "Best Character Oktober",
+            "Best Character September",
+            "Best Character September",
+            "Best Character September",
+            "Pesta Siaga"   )
+        dialog.autoKegiatan.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsKegiatan))
+
+        val itemsJadwal = listOf("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" )
+        dialog.autoJadwal.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsJadwal))
+
+        Utils.setCustomDialog(requireContext(), dialog.root,null, object : Utils.Callback{
+            override fun onPositive() {
+                Utils.showToastInfo(requireContext(), "yes")
+            }
+
+            override fun onNegative() {
+                Utils.showToastInfo(requireContext(), "No")
+
+            }
+
+        })
     }
 }

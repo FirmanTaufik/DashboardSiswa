@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.app.dashboardsiswa.R
+import com.app.dashboardsiswa.databinding.DialogAddEkstrakurikuleBinding
+import com.app.dashboardsiswa.databinding.DialogAddKemasyarakatanBinding
 import com.app.dashboardsiswa.databinding.FragmentKegiatanKemasyarakatanBinding
 import com.app.dashboardsiswa.databinding.TabelContentBinding
+import com.app.dashboardsiswa.helper.Utils
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,6 +54,30 @@ class KegiatanKemasyarakatanFragment : Fragment() {
             binding.tableLayout.addView(content.root)
 
         }
+        binding.btn.setOnClickListener {
+            dialogAdd()
+        }
         super.onViewCreated(view, savedInstanceState)
+    }
+    private fun dialogAdd() {
+        val dialog = DialogAddKemasyarakatanBinding.inflate(layoutInflater)
+
+        val itemsKegiatan = listOf( "" )
+        dialog.autoKegiatan.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsKegiatan))
+
+        val itemsJadwal = listOf("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" )
+        dialog.autoJadwal.setAdapter(ArrayAdapter(requireContext(), R.layout.dropdown_item, itemsJadwal))
+
+        Utils.setCustomDialog(requireContext(), dialog.root,null, object : Utils.Callback{
+            override fun onPositive() {
+                Utils.showToastInfo(requireContext(), "yes")
+            }
+
+            override fun onNegative() {
+                Utils.showToastInfo(requireContext(), "No")
+
+            }
+
+        })
     }
 }
